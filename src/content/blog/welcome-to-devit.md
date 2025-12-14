@@ -3,9 +3,9 @@ title: "Welcome to DevIT"
 date: 2025-12-14
 description: "Introductory post about DevIT, our services and expertise."
 tags:
-	- sql
-	- devops
-	- intro
+  - sql
+  - devops
+  - intro
 ---
 
 Welcome to DevIT — we specialize in Microsoft SQL Server performance and cloud-native DevOps.
