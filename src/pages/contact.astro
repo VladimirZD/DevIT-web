@@ -10,13 +10,37 @@ import Footer from '../components/Footer.astro';
     <p class="muted">Interested in working together? Send an email to <strong>hello@devit.example</strong> or use the form below to request a consultation.</p>
 
     <section style="margin-top:18px" class="card">
-      <form action="#" method="post">
-        <label class="muted">Name<br/><input name="name" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
-        <label class="muted" style="display:block;margin-top:12px">Email<br/><input name="email" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
-        <label class="muted" style="display:block;margin-top:12px">Message<br/><textarea name="message" rows="6" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea></label>
-        <div style="margin-top:12px"><button class="cta">Send</button></div>
+      <form action="#" method="post" id="contact-form">
+        <!-- Honeypot field: hidden from humans, visible to bots -->
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="timestamp" id="timestamp" value="" />
+        
+        <label class="muted">Name<br/><input name="name" required style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
+        <label class="muted" style="display:block;margin-top:12px">Email<br/><input name="email" type="email" required style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
+        <label class="muted" style="display:block;margin-top:12px">Message<br/><textarea name="message" rows="6" required style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea></label>
+        <div style="margin-top:12px"><button type="submit" class="cta">Send</button></div>
       </form>
     </section>
+
+    <script>
+      // Set timestamp when page loads
+      document.getElementById('timestamp').value = Date.now().toString();
+      
+      // Basic bot protection
+      document.getElementById('contact-form').addEventListener('submit', (e) => {
+        const honeypot = e.target.elements.website.value;
+        const timestamp = parseInt(e.target.elements.timestamp.value);
+        const now = Date.now();
+        const timeDiff = (now - timestamp) / 1000; // seconds
+        
+        // Block if honeypot filled or form submitted too fast (< 3 seconds)
+        if (honeypot || timeDiff < 3) {
+          e.preventDefault();
+          console.warn('Bot protection triggered');
+          return false;
+        }
+      });
+    </script>
   </main>
   <Footer />
 </Base>
