@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Contact — DevIT">
+  <Header />
+  <main class="container">
+    <h1>Contact</h1>
+    <p class="muted">Interested in working together? Send an email to <strong>hello@devit.example</strong> or use the form below to request a consultation.</p>
+
+    <section style="margin-top:18px" class="card">
+      <form action="#" method="post">
+        <label class="muted">Name<br/><input name="name" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
+        <label class="muted" style="display:block;margin-top:12px">Email<br/><input name="email" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"/></label>
+        <label class="muted" style="display:block;margin-top:12px">Message<br/><textarea name="message" rows="6" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea></label>
+        <div style="margin-top:12px"><button class="cta">Send</button></div>
+      </form>
+    </section>
+  </main>
+  <Footer />
+</Base>

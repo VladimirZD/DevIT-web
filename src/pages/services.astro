@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Services — DevIT">
+  <Header />
+  <main class="container">
+    <h1>Services</h1>
+    <div class="grid" style="margin-top:12px">
+      <div class="card">
+        <h3>SQL Server Consultancy</h3>
+        <p class="muted">Capacity planning, indexing strategies, query tuning, backups, migrations, and HA/DR.</p>
+      </div>
+      <div class="card">
+        <h3>Platform Engineering</h3>
+        <p class="muted">Design and operate Kubernetes and Nomad clusters, GitOps workflows, and platform tooling.</p>
+      </div>
+      <div class="card">
+        <h3>Terraform Automation</h3>
+        <p class="muted">Module design, state management, CI integration, and policy enforcement.</p>
+      </div>
+      <div class="card">
+        <h3>Security & Observability</h3>
+        <p class="muted">Hardening, secrets management, logging, tracing, and metrics pipelines.</p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="DevIT — SQL Server & DevOps">
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>DevIT — Reliable SQL Server & DevOps Expertise</h1>
+        <p class="muted">We help businesses design, operate, and secure data platforms and cloud-native infrastructure using SQL Server, Kubernetes, Nomad, Terraform and best-practice DevOps.</p>
+        <a class="cta" href="/contact">Get in touch</a>
+      </div>
+      <aside class="card">
+        <h3>Our Core Services</h3>
+        <ul class="muted">
+          <li>MS SQL Server architecture & tuning</li>
+          <li>Cloud-native CI/CD & orchestration (K8s, Nomad)</li>
+          <li>Infrastructure as Code with Terraform</li>
+          <li>Platform hardening & monitoring</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section style="margin-top:28px">
+      <h2>How we help</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h4>Database Modernization</h4>
+          <p class="muted">Migration planning, performance tuning, high availability and disaster recovery for SQL Server workloads.</p>
+        </div>
+        <div class="card">
+          <h4>Cloud-Native Platforms</h4>
+          <p class="muted">Kubernetes and Nomad platform design, cluster lifecycle, and GitOps practices.</p>
+        </div>
+        <div class="card">
+          <h4>Infrastructure as Code</h4>
+          <p class="muted">Repeatable infrastructure with Terraform and secure state management.</p>
+        </div>
+        <div class="card">
+          <h4>DevOps & Observability</h4>
+          <p class="muted">CI/CD pipelines, monitoring, and SRE practices to keep systems healthy.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>

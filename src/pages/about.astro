@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="About — DevIT">
+  <Header />
+  <main class="container">
+    <h1>About DevIT</h1>
+    <p class="muted">DevIT is a consultancy specializing in Microsoft SQL Server, and cloud-native DevOps practices. We help organizations improve reliability, scalability, and security of their data and platform.</p>
+
+    <h2 style="margin-top:18px">Expertise</h2>
+    <ul class="muted">
+      <li>MS SQL Server performance, HA, backups, and disaster recovery</li>
+      <li>Cluster orchestration using Kubernetes and HashiCorp Nomad</li>
+      <li>Infrastructure as Code: Terraform modules and workflows</li>
+      <li>CI/CD pipelines, observability, and SRE practices</li>
+    </ul>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    # Keep both direct and indirect dependencies covered
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"

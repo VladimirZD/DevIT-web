@@ -1,0 +1,68 @@
+:root{
+  --bg:#0f1724; /* dark navy */
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#7c5cff;
+  --glass: rgba(255,255,255,0.04);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #071025 0%, #081229 100%);
+  color: #e6eef8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:1100px;margin:0 auto;padding:32px}
+header.site-header{backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:calc(var(--radius) + 4px);padding:18px;margin:18px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4cc9f0);display:flex;align-items:center;justify-content:center;font-weight:700}
+.sticky{position:sticky}
+.top-4{top:1rem}
+.z-40{z-index:40}
+.backdrop-blur-md{backdrop-filter:blur(6px)}
+.bg-white\/3{background:rgba(255,255,255,0.03)}
+.rounded-xl{border-radius:12px}
+.p-3{padding:12px}
+.ml-auto{margin-left:auto}
+.text-white{color:#e6eef8}
+.text-white\/70{color:rgba(230,238,248,0.7)}
+.text-white\/80{color:rgba(230,238,248,0.8)}
+.no-underline{text-decoration:none}
+
+/* Fallback sizing so images and cards behave even when Tailwind isn't applied */
+img{max-width:100%;height:auto;display:block}
+.brand img{width:48px;height:48px;object-fit:cover;border-radius:8px}
+.card img{display:block;max-width:100%;height:auto}
+
+/* Constrain hero visual and ensure header/nav don't overlap */
+.hero{display:grid;grid-template-columns:1fr;gap:20px;padding:48px 0}
+.hero .card{max-width:520px;margin-left:auto}
+.hero .card img{width:100%;height:auto;display:block}
+
+header.sticky{position:sticky;top:1rem;z-index:40}
+header.sticky > .container{display:flex;align-items:center;gap:16px;padding:12px;background:rgba(255,255,255,0.03);border-radius:12px}
+header.sticky nav{margin-left:auto;display:flex;gap:18px;align-items:center}
+header.sticky nav a{color:rgba(230,238,248,0.8);text-decoration:none}
+header.sticky nav a:hover{color:#ffffff}
+
+.nav{display:flex;gap:18px;align-items:center;margin-left:auto}
+.nav a{color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1fr;gap:20px;padding:48px 0}
+.hero h1{font-size:2.4rem;margin:0 0 8px}
+.hero p{color:var(--muted);margin:0 0 18px}
+.cta{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:10px;text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.muted{color:var(--muted)}
+footer{padding:28px 0;color:var(--muted)}
+@media(min-width:900px){.hero{grid-template-columns:1fr 420px}}
+
+/* Small entrance animation used by components */
+.fade-up{animation:fadeUp .6s cubic-bezier(.2,.9,.2,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
