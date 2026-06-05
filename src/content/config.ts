@@ -1,9 +1,13 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 
-// Blog collection - basic frontmatter fields
 export const blog = defineCollection({
-  // no schema to keep it flexible; expected frontmatter:
-  // title, description, date, tags: string[]
+  type: 'content',
+  schema: z.object({
+    title: z.string().min(1),
+    description: z.string().min(1),
+    date: z.coerce.date(),
+    tags: z.array(z.string().min(1)).default([]),
+  }),
 });
 
 export const collections = {

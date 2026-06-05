@@ -1,12 +1,18 @@
 ---
-const { post } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post }: Props = Astro.props;
 ---
 <article class="card">
   <a href={`/blog/${post.slug}`} style="text-decoration:none;color:inherit">
     <h3>{post.data.title}</h3>
-    <div class="muted" style="font-size:0.9rem">{post.data.date ? new Date(post.data.date).toLocaleDateString() : ''}</div>
+    <div class="muted" style="font-size:0.9rem">{post.data.date.toLocaleDateString()}</div>
     <p class="muted">{post.data.description ?? ''}</p>
-    {post.data.tags ? (
+    {post.data.tags.length > 0 ? (
       <div style="margin-top:8px">
         {post.data.tags.map((t) => (<span class="muted" style="margin-right:8px">#{t}</span>))}
       </div>
