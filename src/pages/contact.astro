@@ -23,21 +23,41 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <script>
+      const timestampInput = document.getElementById('timestamp');
+      const contactForm = document.getElementById('contact-form');
+
+      if (!(timestampInput instanceof HTMLInputElement)) {
+        throw new Error('Contact timestamp input not found');
+      }
+
+      if (!(contactForm instanceof HTMLFormElement)) {
+        throw new Error('Contact form not found');
+      }
+
       // Set timestamp when page loads
-      document.getElementById('timestamp').value = Date.now().toString();
-      
+      timestampInput.value = Date.now().toString();
+
       // Basic bot protection
-      document.getElementById('contact-form').addEventListener('submit', (e) => {
-        const honeypot = e.target.elements.website.value;
-        const timestamp = parseInt(e.target.elements.timestamp.value);
+      contactForm.addEventListener('submit', (e) => {
+        const form = e.currentTarget;
+        if (!(form instanceof HTMLFormElement)) {
+          return;
+        }
+
+        const honeypot = form.elements.namedItem('website');
+        const timestampField = form.elements.namedItem('timestamp');
+        if (!(honeypot instanceof HTMLInputElement) || !(timestampField instanceof HTMLInputElement)) {
+          return;
+        }
+
+        const timestamp = parseInt(timestampField.value, 10);
         const now = Date.now();
         const timeDiff = (now - timestamp) / 1000; // seconds
         
         // Block if honeypot filled or form submitted too fast (< 3 seconds)
-        if (honeypot || timeDiff < 3) {
+        if (honeypot.value || timeDiff < 3) {
           e.preventDefault();
           console.warn('Bot protection triggered');
-          return false;
         }
       });
     </script>
